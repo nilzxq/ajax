@@ -12,8 +12,8 @@
     	  //3.创建一个XMLHttpRequest对象
     	  var request=new XMLHttpRequest();
     	  
-    	  //4.准备发送请求数据：url
-    	  var url=this.href;
+    	  //4.准备发送请求数据：url  +date以起到禁用缓存的目的 new Date是js的对象不是java的
+    	  var url=this.href+"?time="+new Date();
     	  var method="GET";
     	  //5.调用XMLHttpRequest对象的open方法
     	  request.open(method,url);
