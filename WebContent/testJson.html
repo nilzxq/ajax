@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	//使用eval()方法
+	var testStr = "alert('hello eval')";
+	//eval可以把一个字符串转为本地的JS代码来执行
+	eval(testStr);
+	var jsonStr="{'name':'zxq'}";
+	//把JSON字符串转化为JSON对象  !!!!注意语法
+	var testObject=eval("("+jsonStr+")");
+	alert(testObject.name);
+	
+</script>
+</head>
+<body>
+</body>
+</html>
