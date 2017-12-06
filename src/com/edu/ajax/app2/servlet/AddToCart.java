@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
 import com.edu.ajax.app2.beans.ShoppingCart;
 
 /**
@@ -43,17 +45,21 @@ public class AddToCart extends HttpServlet {
 	 *   $("#totalMoney").text(data.totalMoney);
 	 *   {"bookName":"","totalBookNumber":1,"totalMoney":1}
 	*/
-		StringBuilder result=new StringBuilder();
-		result.append("{")
-		         .append("\"bookName\":\""+bookName+"\"")
-		         .append(",")
-		         .append("\"totalBookNumber\":"+sc.getTotalBookNumber())
-		         .append(",")
-		         .append("\"totalMoney\":"+sc.getTotalMoney())
-		         .append("}");
+//		StringBuilder result=new StringBuilder();
+//		result.append("{")
+//		         .append("\"bookName\":\""+bookName+"\"")
+//		         .append(",")
+//		         .append("\"totalBookNumber\":"+sc.getTotalBookNumber())
+//		         .append(",")
+//		         .append("\"totalMoney\":"+sc.getTotalMoney())
+//		         .append("}");
+		ObjectMapper mapper=new ObjectMapper();
+		String result=mapper.writeValueAsString(sc);
+		System.out.println(result);
 		//5.响应JSON对象
 		response.setContentType("text/javascript");
-		response.getWriter().print(result.toString());
+		//response.getWriter().print(result.toString());
+		response.getWriter().print(result);
 	}
 
 }

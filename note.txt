@@ -32,3 +32,16 @@ I.基本使用
   $.getJSON(url,args,function(data){
  })
  
+ 5.使用JackSon
+ 1).加入jar包
+ 2）具体的使用步骤：
+ I.创建org.codehaus.jackson.map.ObjectMapper对象
+ II.调用ObjectMapper的writerValueAsString方法把Java对象或集合转为JSON字符串
+ 
+	    String jsonStr=mapper.writeValueAsString(customer);
+	    System.out.println(jsonStr);
+	
+III.注意：
+(1).JackSon根据getter来定位Json对象的属性，而不是字段
+(2).可以类的getter方法上添加注解：org.codehaus.jackson.annotate.JsonIgnore
+在转为Json对象时以忽略该属性
