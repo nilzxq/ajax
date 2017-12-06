@@ -30,5 +30,5 @@ I.基本使用
  },"JSON")
  
   $.getJSON(url,args,function(data){
- },"JSON")
+ })
  
